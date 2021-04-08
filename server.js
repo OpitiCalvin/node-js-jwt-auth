@@ -19,10 +19,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const db = require("./app/models");
 const Role = db.role;
 
-db.sequelize.sync({ force: true }).then(() => {
-    console.log('Drop and Resync DB');
-    initial();
-});
+// // forcefully drops db tables then recreates them
+// db.sequelize.sync({ force: true }).then(() => {
+//     console.log('Drop and Resync DB');
+//     initial();
+// });
+
+// db.sequelize.sync();
+// ******************
 
 // simple route
 app.get("/", (req, res) => {
